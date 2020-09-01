@@ -6,6 +6,7 @@
 <title>/views/home.jsp</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
 <h1>
 	Hello world!  
 	아아아아아아아ㅏ아아아아아ㅏㅏ 드디어 된다ㅜㅜㅜㅜㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜ

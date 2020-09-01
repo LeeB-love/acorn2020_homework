@@ -11,7 +11,7 @@ import com.bongha.myhomework.users.dto.UsersDto;
 
 public interface UsersService {
 
-	public void getUsersList(HttpServletRequest request, ModelAndView mView);
+	public void getUsersList(ModelAndView mView);
 	public void getUserInfo(HttpServletRequest request, ModelAndView mView);
 	
 	public void addUser(UsersDto dto);
