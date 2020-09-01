@@ -4,5 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
+  	
+  	<typeAliases>
+  		<typeAlias type="com.bongha.myhomework.users.dto.UsersDto" alias="usersDto"/>
+  	</typeAliases>
   
+  	<mappers>
+		<mapper resource="com/bongha/myhomework/mybatis/UsersMapper.xml"/>  	
+  	</mappers>
   </configuration>
