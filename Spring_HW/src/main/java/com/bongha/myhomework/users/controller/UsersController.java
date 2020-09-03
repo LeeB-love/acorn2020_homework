@@ -18,11 +18,6 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
-	@RequestMapping("/users/loginform")
-	public String loginform() {
-		return "users/loginform";
-	}
-	
 	//=======회원가입 관련============
 	
 	//회원가입 폼 요청 처리
@@ -45,5 +40,13 @@ public class UsersController {
 		usersService.addUser(dto);
 		mView.setViewName("/users/signup");
 		return mView;
+	}
+	
+	//=====로그인 관련===========
+	
+	//로그인 폼 요청 처리
+	@RequestMapping("/users/loginform")
+	public String loginform() {
+		return "users/loginform";
 	}
 }
