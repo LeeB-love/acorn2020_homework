@@ -54,8 +54,10 @@ public class UsersDaoImpl implements UsersDao{
 	public boolean isExist(String inputId) {
 		String id = session.selectOne("users.isExist", inputId);
 		if(id==null) {
+			//중복되는 아이디가 없으면 false
 			return false;
 		}else {
+			//중복되는 아이디가 있으면 true
 			return true;
 		}
 	}

@@ -36,7 +36,7 @@
 <div class="container" ng-controller="formCtrl">
 	<h1 style="margin-bottom: 40px; margin-top: 30px;">|회원가입|</h1>
 	
-	<form action="signup.do" method="post" name="myForm" novalidation>
+	<form action="signup.do" method="post" name="myForm" novalidate>
 		
 		<div class="form-group">
 			<label for="id">아이디</label>
@@ -80,7 +80,7 @@
 			<div class="invalid-feedback">이메일 형식에 맞게 입력해주세요. (ex)아이디@naver.com)</div>
 		</div>
 		
-		<button type="submit" class="btn btn-primary">회원가입</button>
+		<button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">회원가입</button>
 		<button type="reset" class="btn btn-danger">취소</button>
 	</form>
 </div>

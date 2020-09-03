@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bongha.myhomework.users.dto.UsersDto;
 import com.bongha.myhomework.users.service.UsersService;
 
 @Controller
@@ -36,5 +37,13 @@ public class UsersController {
 	public Map<String, Object> checkid(@RequestParam String inputId){
 		//service의 isExistId가 리턴한 Map객체를 받아서 다시 리턴
 		return usersService.isExistId(inputId);
+	}
+	
+	//회원가입 요청 처리
+	@RequestMapping("/users/signup")
+	public ModelAndView signup(ModelAndView mView, UsersDto dto) {
+		usersService.addUser(dto);
+		mView.setViewName("/users/signup");
+		return mView;
 	}
 }

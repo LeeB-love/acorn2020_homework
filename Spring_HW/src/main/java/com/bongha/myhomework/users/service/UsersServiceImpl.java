@@ -62,6 +62,7 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public Map<String, Object> isExistId(String inputId) {
+		//inputId와 기존에 있는 id를 비교하여 결과 boolean값을 map에 담아 리턴
 		boolean isExist = usersDao.isExist(inputId);
 		Map<String, Object> map = new HashMap<>();
 		map.put("isExist", isExist);

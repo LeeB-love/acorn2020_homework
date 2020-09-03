@@ -13,9 +13,9 @@
 	</select>
 	
 	<insert id="insert" parameterType="usersDto">
-		insert into users
-		(id, pwd, email, profile, regdate)
-		values(#{id}, #{pwd}, #{email}, #{profile}, sysdate)
+		INSERT INTO users
+		(id, pwd, email, regdate)
+		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
 	</insert>
 	
 	<delete id="delete" parameterType="string">

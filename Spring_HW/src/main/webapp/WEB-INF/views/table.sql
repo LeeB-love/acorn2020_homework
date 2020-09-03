@@ -1,7 +1,7 @@
 create table users(
-id varchar2(35) not null, 
-pwd varchar2(20) not null, 
-email varchar2(40), 
+id varchar2(60) not null, 
+pwd varchar2(60) not null, 
+email varchar2(60), 
 profile varchar2(100), 
 regdate date
 );
