@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -80,4 +82,44 @@ public class UsersServiceImpl implements UsersService {
 		return null;
 	}
 
+	@Override
+	public void loginProcess(UsersDto dto, ModelAndView mView, HttpSession session) {
+		boolean isValid=false; //초기값 false
+		//입력한 아이디랑 기존에 저장되어있는 아이디랑 비교
+		UsersDto resultDto=usersDao.getData(dto.getId());
+		if(resultDto != null) {
+			//아이디 비교 완료, 비밀번호 비교 ㄱㄱ
+			String encodedPwd=resultDto.getPwd();
+			String inputPwd=dto.getPwd();
+			isValid=BCrypt.checkpw(inputPwd, encodedPwd);
+		}
+		
+		if(isValid) {
+			//일치하면 일치한다고 응답
+			session.setAttribute("id", dto.getId());
+			mView.addObject("isSuccess", true);
+		}else {
+			mView.addObject("isSuccess", false);
+		}
+		
+	}
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

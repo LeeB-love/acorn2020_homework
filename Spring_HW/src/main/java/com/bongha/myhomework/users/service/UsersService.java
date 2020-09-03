@@ -3,6 +3,7 @@ package com.bongha.myhomework.users.service;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,8 @@ public interface UsersService {
 	public void addUser(UsersDto dto);
 	public void deleteUser(HttpServletRequest request);
 	public void updateUser(HttpServletRequest request, UsersDto dto);
+	
+	public void loginProcess(UsersDto dto, ModelAndView mView, HttpSession session);
 	
 	public Map<String, Object> isExistId(String inputId);
 	public void updateUsersPwd(HttpServletRequest request, UsersDto dto, ModelAndView mView);
