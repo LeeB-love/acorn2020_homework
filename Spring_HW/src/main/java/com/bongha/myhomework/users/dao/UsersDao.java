@@ -13,5 +13,6 @@ public interface UsersDao {
 	public void update(UsersDto dto);
 
 	public boolean isExist(String inputId);
-	public void updatePwd(UsersDto dto);
+	public boolean updatePwd(UsersDto dto);
+	
 }

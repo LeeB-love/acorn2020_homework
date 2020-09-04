@@ -73,7 +73,11 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public void updateUsersPwd(HttpServletRequest request, UsersDto dto, ModelAndView mView) {
-		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodedNewPwd = encoder.encode(dto.getNewPwd());
+		dto.setNewPwd(encodedNewPwd);
+		boolean isSuccess = usersDao.updatePwd(dto);
+		mView.addObject("isSuccess", isSuccess);
 	}
 
 	@Override
@@ -93,7 +97,6 @@ public class UsersServiceImpl implements UsersService {
 			String inputPwd=dto.getPwd();
 			isValid=BCrypt.checkpw(inputPwd, encodedPwd);
 		}
-		
 		if(isValid) {
 			//일치하면 일치한다고 응답
 			session.setAttribute("id", dto.getId());
@@ -101,7 +104,22 @@ public class UsersServiceImpl implements UsersService {
 		}else {
 			mView.addObject("isSuccess", false);
 		}
+	}
+
+	//현재비밀번호 확인
+	@Override
+	public Map<String, Object> isValidPwd(String inputPwd, HttpServletRequest request) {
+		//일단 기존 비밀번호 가져오기 위한 id정보 가져오기
+		String id=(String)request.getSession().getAttribute("id");
 		
+		//기존 비번이랑 input 비번이랑 비교
+		String encodedPwd=usersDao.getData(id).getPwd();
+		boolean isValid=BCrypt.checkpw(inputPwd, encodedPwd);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("isValid", isValid);
+		return map;
+
 	}
 
 

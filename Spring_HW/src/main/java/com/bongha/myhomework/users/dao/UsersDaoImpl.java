@@ -64,10 +64,14 @@ public class UsersDaoImpl implements UsersDao{
 
 	//비번 수정
 	@Override
-	public void updatePwd(UsersDto dto) {
-		session.update("users.updatePwd", dto);
+	public boolean updatePwd(UsersDto dto) {
+		int result = session.update("users.updatePwd", dto);
+		if(result == 0) {
+			return false;
+		}else {
+			return true;
+		}
 		
 	}
-
 
 }

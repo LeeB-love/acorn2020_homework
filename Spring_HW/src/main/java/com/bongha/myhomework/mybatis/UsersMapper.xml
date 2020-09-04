@@ -40,4 +40,10 @@
 		set pwd=#{newPwd}
 		where id=#{id}
 	</update>
+	
+	<select id="isValid" parameterType="string" resultType="string">
+		select pwd
+		from users
+		where pwd=#{inputPwd}
+	</select>
 </mapper>

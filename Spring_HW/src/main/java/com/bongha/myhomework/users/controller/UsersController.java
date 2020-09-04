@@ -100,4 +100,19 @@ public class UsersController {
 	public String pwdUpdateForm() {
 		return "users/private/pwd_updateform";
 	}
+	
+	//비밀번호 변경 시 현재 비밀번호 확인
+	@RequestMapping("/users/private/checkPwd")
+	@ResponseBody
+	public Map<String, Object> checkPwd(@RequestParam String inputPwd, HttpServletRequest request){
+		return usersService.isValidPwd(inputPwd, request);
+	}
+	
+	//비밀번호 변경 요청
+	@RequestMapping("/users/private/pwd_update")
+	public ModelAndView pwdUpdate(ModelAndView mView, UsersDto dto, HttpServletRequest request) {
+		usersService.updateUsersPwd(request, dto, mView);
+		mView.setViewName("users/private/pwd_update");
+		return mView;
+	}
 }

@@ -60,7 +60,7 @@
 					ng-class="{'is-invalid':myForm.pwd.$invalid && myForm.pwd.$dirty, 'is-valid':myForm.pwd.$valid}"		
 					ng-change="pwdChanged()"
 			/>
-			<small class="fomr-text text-muted">영문자,특수문자,숫자를 모두 포함하여 8자 이상, 20자 미만으로 입력할 수 있습니다.</small>
+			<small class="form-text text-muted">영문자,특수문자,숫자를 모두 포함하여 8자 이상, 20자 미만으로 입력할 수 있습니다.</small>
 			<div class="invalid-feedback">비밀번호를 확인해주세요</div>
 			
 			<input type="password" name="pwd2" id="pwd2" placeholder="비밀번호 확인..." class="form-control" 

@@ -24,4 +24,6 @@ public interface UsersService {
 	public Map<String, Object> isExistId(String inputId);
 	public void updateUsersPwd(HttpServletRequest request, UsersDto dto, ModelAndView mView);
 	public Map<String, Object> saveProfileImage(HttpServletRequest request, MultipartFile mFile);
+	
+	public Map<String, Object> isValidPwd(String inputPwd, HttpServletRequest request);
 }
