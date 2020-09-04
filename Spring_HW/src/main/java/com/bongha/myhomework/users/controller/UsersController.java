@@ -112,7 +112,7 @@ public class UsersController {
 	@RequestMapping("/users/private/pwd_update")
 	public ModelAndView pwdUpdate(ModelAndView mView, UsersDto dto, HttpServletRequest request) {
 		usersService.updateUsersPwd(request, dto, mView);
-		mView.setViewName("users/private/pwd_update");
+		mView.setViewName("/users/private/pwd_update");
 		return mView;
 	}
 }
